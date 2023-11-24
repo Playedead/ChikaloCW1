@@ -6,7 +6,7 @@ public class Employee {
   private double salary;
   private int department;
   private final int id;
-  private static int counter = 1;
+  private static int counter;
 
   public Employee(String fullName, double salary, int department) {
     this.fullName = fullName;
@@ -48,23 +48,5 @@ public class Employee {
     return "ФИО - " + fullName + ", Зарплата - " + salary +
         ", Департамент " + department +
         ", ID - " + id + ";";
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Employee employee = (Employee) o;
-    return Double.compare(salary, employee.salary) == 0 && department == employee.department
-        && id == employee.id && Objects.equals(fullName, employee.fullName);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(fullName, salary, department, id);
   }
 }

@@ -3,11 +3,11 @@ import java.util.Random;
 public class Main {
 
   public static void main(String[] args) {
-    Employee[] employees = new Employee[11];
+    Employee[] employees = new Employee[10];
     Random random = new Random();
     for (int i = 0; i < employees.length; i++) {
       double salary = 100_000 + 100_000 * random.nextDouble();
-      long salary1 = Math.round(salary);
+      double salary1 = Math.round(salary);
       employees[i] = new Employee("name_" + i, salary1, random.nextInt(1, 5));
     }
     showInfo(employees);
@@ -27,8 +27,8 @@ public class Main {
     }
   }
 
-  public static long getSum(Employee[] employees) {
-    long sum = 0;
+  public static double getSum(Employee[] employees) {
+    double sum = 0;
     for (Employee employee : employees) {
       sum += employee.getSalary();
     }
@@ -54,9 +54,11 @@ public class Main {
     }
     return maxEmployeeSalary;
   }
-  public static long getAverage(Employee[] employees) {
+
+  public static double getAverage(Employee[] employees) {
     return getSum(employees) / employees.length;
   }
+
   public static void showFullName(Employee[] employees) {
     for (Employee employee : employees) {
       System.out.println(employee.getFullName());
